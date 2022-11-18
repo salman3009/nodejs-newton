@@ -1,0 +1,46 @@
+MongoDB important points:
+1.To show db;
+cmd:show dbs
+2.To make new db;
+cmd:use Demo
+3.creating colletions;
+cmd:db.createCollection("book")
+4.insert document inside the createCollection
+cmd:db.book.insert({"title":"The king of","author":"xyz","price":123});
+5.see the document
+cmd:db.book.find()
+6.see the document in organized way
+cmd:db.book.find().pretty()
+7.to see all collections
+cmd:show collections
+8.inserting different datatype in document
+cmd:db.book.insert({[{"x":null},{"y":true},{"a":3.23},{"b":"abc"},{"c":new Date()},{"d":[1,2,3]},{"e":{"f":1}}]});
+9.deleting the matching record
+cmd:db.book.remove({"title":"The king of"})
+10.Deleting the single record
+cmd:db.book.remove({"title":"The king of"},1)
+11.To drop database
+cmd:use Demo,
+cmd:db.dropDatabase()
+12.update command "name" is selection criteria
+cmd:db.book.update({"name":"marry"},{$set:{"age":15}})
+13.update inside object embedded fields
+cmd:db.book.update({"id":1},{$set:{"address.home":"USA"}});
+14.update multiple documents.
+cmd:db.book.update({"name":"salma"},{$set:{"age":40}},{multi:true})
+15.replace the entire document.
+cmd:db.book.update({"name":"joi},{"name":"salman","contactno":122121212})
+16.Finding age greater then 15
+cmd:db.book.find({"age":{$gt:15}})
+17.Finding age greater then 15 and less then 18
+cmd:db.book.find({"age":{$gte:15,$lte:18}})
+18.To limit the results
+cmd:db.book.find().pretty().limit(50)
+19.To rename the key of document
+cmd:db.book.update({"name":"lilly"},{$rename:{"name":"Name"}})
+20.To count the number of documents
+cmd:db.runCommand({count:"book"})
+21.To skip specified number of documents.
+cmd:db.book.aggregate({$skip:6})
+22.drop collections;
+cmd:db.categories.drop();

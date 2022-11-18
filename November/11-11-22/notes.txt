@@ -1,0 +1,55 @@
+Browser Side Storage or client side:
+1.local Storage
+  //It can be set from frontend side only.
+  //This data is permanent once you close the tab as well. Manually we need to delete this data.
+  //While page refresh or after shutdown of your system still you need to proceed with login credentials.
+  example:gmail web,watsapp web,telegram web
+2.session Storage
+  //It can be set from both frontend and backend side.
+  //This data is not permanent once you close the tab.The data will be deleted automatically.
+  example:banking website.
+3.cookies
+   //It can be set from both frontend and backend side.
+   //This data is not permanent similar to session storage.
+   //cookies can store very much less data compare to session storage. 
+   //Mostly used in application where frontend and backend are written together 
+   //applications with nodejs with ejs or jsp or servlet.
+   //Mostly in server side rendering application.
+======================================================
+Concept of Authentication and authorization:
+Tech:
+1.Reactjs
+2.Nodejs-expressjs 
+3.Database - Mongodb - mongoose 
+Frontend:
+1.Login 
+2.Register 
+3.Table:
+1.User has to register first before login to our application - one api call to backend to save the data.
+2.User has to login with proper credentials then only we can access table component - one api to check email and password.
+3.Table component will be shown depends upon user credentaisl access - authorization will be done there.
+4.only admin access user can able to delete the data and edit the data.
+5.Admin access we will have separate admin application to give admin access to users.
+6.Table component each api will have token to check whether he is valid user and at the same time he can able to delete data. 4 api 
+Backend:
+Total api: 6 
+register - 1
+login - 1 
+table - CRUD - 4 
+Middleware - login credentails -1 
+Middleware - table login and authorization -2 
+Backend Folder structure:
+1.controller  - business logic to fetch or edit or delete or checking the data.
+2.Middleware - checking purpose will be added in sequence inside the router
+3.routes  - creating differant routing path same like react 
+4.index.js - starting page of application 
+5.models  - creating database schema
+6.package.json 
+
+
+
+
+
+
+
+

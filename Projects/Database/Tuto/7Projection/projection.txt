@@ -1,0 +1,13 @@
+Projection:
+Example 1:
+db.mycol.find({},{"title":1,_id:0})
+Limit:
+Example 2:
+db.mycol.find({},{"title":1,_id:0}).limit(2)
+Skip:
+Example 3:
+db.mycol.find({},{"title":1,_id:0}).limit(1).skip(1)
+Sort:
+Example 4:descending order
+db.mycol.find({},{"title":1,_id:0}).sort({"title":-1})
+=======================================================

@@ -1,0 +1,8 @@
+Remove Documents:
+Example 1:remove all the documents:
+db.mycol.remove({'title':'MongoDB Overview'})
+Example 2:remove only one documents:
+db.COLLECTION_NAME.remove(DELETION_CRITERIA,1)
+Example 3:truncate all documents
+db.mycol.remove({})
+===============================================================

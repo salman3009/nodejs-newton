@@ -1,0 +1,41 @@
+Query Documents:
+================
+Example 1:
+db.COLLECTION_NAME.find()
+Example 2:
+db.mycol.find().pretty()
+Example 3:
+>db.mycol.find({$and:[{"by":"salman"},{"title": "MongoDB Overview"}]}).pretty() {
+   "_id": ObjectId(7df78ad8902c),
+   "title": "MongoDB Overview", 
+   "description": "MongoDB is no sql database",
+   "by": "salman",
+   "tags": ["mongodb", "database", "NoSQL"],
+   "likes": "100"
+}
+Example 4:
+db.mycol.find({$or:[{"by":"salman"},{"title": "MongoDB Overview"}]}).pretty()
+{
+   "_id": ObjectId(7df78ad8902c),
+   "title": "MongoDB Overview", 
+   "description": "MongoDB is no sql database",
+   "by": "salman",
+   "url": "http://www.google.com",
+   "tags": ["mongodb", "database", "NoSQL"],
+   "likes": "100"
+}
+
+Example 5:
+Equivalent SQL where clause is 'where likes>10 AND (by = google point' OR title = 'MongoDB Overview')'
+
+>db.mycol.find({"likes": {$gt:10}, $or: [{"by": "salman"},
+   {"title": "MongoDB Overview"}]}).pretty()
+{
+   "_id": ObjectId(7df78ad8902c),
+   "title": "MongoDB Overview", 
+   "description": "MongoDB is no sql database",
+   "by": "salman",
+   "tags": ["mongodb", "database", "NoSQL"],
+   "likes": "100"
+}
+==========================================================================

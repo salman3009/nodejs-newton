@@ -1,0 +1,47 @@
+1.how to create database
+use newton
+
+2.how to see collections;
+show collections
+
+3.how to create collections 
+db.createCollection('employee');
+
+4.how to insert the data inside the employee collection 
+db.employee.insert({"fullName":"suresh","age":333});
+
+5.how to check the list of data 
+db.employee.find();
+
+6.set of datatypes is allowed inside the mongodb 
+1.string 
+2.number
+3.boolean 
+4.null 
+5.object 
+6.array 
+7.to remove the data we can access any of the field bulk delete
+db.employee.remove({age:44});
+
+8.deleting unique id and only one data 
+db.employee.deleteOne({"_id":ObjectId("6375057734f6d3a7b065bfd8")});
+
+9.how to do update operation - single update
+//update operation consists of two parameters:
+//first parameter to filter the data 
+//second parameter to update the data.(if existing property is present it will update or no existing property it will create new property);
+db.employee.update({"age":44},{$set:{"location":"mumbai","fullName":"henry"}});
+
+10.how to do update operation - multi update
+//update operation consists of two parameters:
+//first parameter to filter the data 
+//second parameter to update the data.(if existing property is present it will update or no existing property it will create new property);
+db.employee.updateMany({"age":44},{$set:{"location":"mumbai","fullName":"henry"}});
+
+
+Database ---> collections --> document ---> propery&value
+11.finding specific data.
+db.employee.find({location:"mumbai"});
+db.employee.find({location:"mumbai",fullName:"henry"});
+db.employee.find({location:"mumbai"}).limit(2);
+db.employee.find({location:"mumbai"}).skip(1).limit(2);

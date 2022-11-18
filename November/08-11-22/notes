@@ -1,0 +1,56 @@
+Query Params:
+1.Inside the api query params is optional attributes
+2.To access in backend we need to use req.query 
+3.get/post/patch/delete method
+url:http://localhost:8080?fullName="akash"&age=45
+Params:
+1.Inside the api params is mandatory attributes
+2.to access in backend we need to use req.params
+3.get/post/patch/delete 
+url:http://localhost:8080/454
+Normal fetch
+1.get/post/patch/delete will fetch response from backend normally
+url:http://localhost:8080
+=================================================================
+SSR - Server side rendering
+1.We will render html pages from nodejs 
+2.html pages will have both static and dynamic data.
+3.To bind dynamic data with html using nodejs we need to use some template engine
+4.Temple engine helps to bind the dynamic data and helps to iterate the data inside the html.
+5.Template engine that we are using is called ejs.
+====================================================
+To setup SSR:
+1.npm init
+2.npm install express
+3.npm install ejs 
+4.create one file index.js 
+5.inside package.json
+example:
+start: nodemon index.js 
+6.setup express server
+const express = require('express');
+const app = express();
+app.get('',()=>{
+
+});
+app.listen(8080,()=>{
+    console.log("server is running");
+})
+7.create one folder called views
+8.inside the views folder create file called home.ejs 
+(any file name but extension should be ejs)
+9.inside the ejs file you can write any html,css and javascript code.
+home.ejs
+<!-- <html>
+    <head>
+
+    </head>
+    <body>
+        <h1>Welcome to server side rendering</h1>
+    </body>
+</html> -->
+10.render method will fetch the ejs file
+app.get('',(req,res)=>{
+       res.render('home.ejs');
+});
+=======================================

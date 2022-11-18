@@ -1,0 +1,32 @@
+//EJS - Embedded JavaScript Templating)
+
+//1.Passing dynamic data from nodejs to ejs template
+//res.render('success.ejs',{fullName:"akash"});
+//first parameter is the name of the file
+//second parameter should be an dynamic object
+
+//2.binding dynamic data inside the ejs
+//basic syntax is <%=  %>
+//example
+//<h1><%=fullName%>
+
+//3.Binding array data inside the ejs 
+//we need to use forEach function inside the ejs template 
+//Dont' use "=" operator while writing the functionality
+//example:
+//<% %>
+//example:
+//<%list.forEach((item)=>{%><h1><%=item.fullName%></h1><%})%>
+
+//4.Posting data from ejs to nodejs 
+//Please create form tag and pass following attributes
+//example
+//<form action="/uploadDetails" method="post">
+
+//5.Accessing the data from ejs to nodejs
+//we need to parse the data using body parser.
+//example:
+//const bodyParser= require('body-parser');
+//app.use(bodyParser.urlencoded({extended: true}));
+//to access it we need to req.body
+========================================================

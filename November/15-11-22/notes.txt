@@ -1,0 +1,10 @@
+1.To show db;
+cmd:show dbs
+2.To make new db;
+cmd:use Demo
+3.creating colletions;
+cmd:db.createCollection("book")
+4.insert document inside the createCollection
+cmd:db.book.insert({"title":"The king of","author":"xyz","price":123});
+5.see the document
+cmd:db.book.find()

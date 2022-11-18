@@ -1,0 +1,12 @@
+Update Documents:
+Example 1:Single document update
+db.mycol.update({'title':'MongoDB Overview'},{$set:{'title':'New MongoDB'}})
+Example 2:Multiple document update
+db.mycol.update({'title':'MongoDB Overview'},{$set:{'title':'New MongoDB'}},{multi:true})
+Example 3:db.mycol.save(
+   {
+      "_id" : ObjectId(5983548781331adf45ec5), "title":"New Topic",
+      "by":"salman"
+   }
+)
+==========================================================================
