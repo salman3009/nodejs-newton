@@ -12,7 +12,7 @@ mongoose.connect('mongodb://localhost/newtonexpense').then(()=>{
      console.log("Database connection failed");
 });
 
-app.post('',(req,res)=>{
+app.post('',(req,res)=>{   
     const result = new Post({
        expenseName:req.body.expenseName,
        amount:Number(req.body.amount),
@@ -28,6 +28,18 @@ app.post('',(req,res)=>{
          }) 
     }) 
 });
+
+app.get('',(req,res)=>{
+    Post.find().then((object)=>{
+        res.status(200).json({
+            result:object
+        });
+    }).catch((error)=>{
+        res.status(400).json({
+            info:error
+         }) 
+    }); 
+})
 
 app.listen(8080,()=>{
     console.log("Nodejs is running on 8080");
