@@ -41,6 +41,32 @@ app.get('',(req,res)=>{
     }); 
 })
 
+app.delete('/:id',(req,res)=>{
+    console.log(req.params.id);
+   Post.findByIdAndRemove(req.params.id).then((object)=>{
+    res.status(200).json({
+        result:object
+    });
+   }).catch((error)=>{
+    res.status(400).json({
+        info:error
+     }) 
+}); 
+})
+
+app.patch('/:id',(req,res)=>{
+    console.log(req.params.id);
+   Post.findByIdAndUpdate(req.params.id,{...req.body}).then((object)=>{
+    res.status(200).json({
+        result:object
+    });
+   }).catch((error)=>{
+    res.status(400).json({
+        info:error
+     }) 
+}); 
+});
+
 app.listen(8080,()=>{
     console.log("Nodejs is running on 8080");
 })
