@@ -13,6 +13,8 @@ mongoose.connect("mongodb://localhost/tres").then((success)=>{
       console.log("connection failed");
 });
 
+
+
 app.use('',userRouter);
 app.use('/student',studentRouter);
 
