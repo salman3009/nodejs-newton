@@ -10,7 +10,8 @@ exports.userLogin= async (req,res)=>{
                 message:"email not found"
             });
         }
-        if(result.password!=req.body.password){
+        let passwordResult = await bcrypt.compare(req.body.password,result.password);
+        if(!passwordResult){
             res.status(400).json({
                 status:"failure",
                 message:"password does not match"
