@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
+const jsonwebtoken =require('jsonwebtoken');
 
 exports.userLogin= async (req,res)=>{
     try{
@@ -18,9 +19,14 @@ exports.userLogin= async (req,res)=>{
             });
         }
         else{
+            const jsonTokenResult = jsonwebtoken.sign({
+                userDetails:result
+            },'document-success',
+               {expiresIn:'1h'} 
+            )
             res.status(200).json({
              status:"success",
-             message:result
+             message:jsonTokenResult
             })
        }   
     }catch(err){
