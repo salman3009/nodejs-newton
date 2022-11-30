@@ -5,7 +5,7 @@ const checkAdmin = require('../middleware/auth');
 const router = express.Router();
 
 router.get('/list',checkAdmin,userController.getStudents);
-router.get('/filter',userController.getStudentsFilter);
-router.post('',userController.postStudents);
+router.get('/filter',checkAdmin,userController.getStudentsFilter);
+router.post('',checkAdmin,userController.postStudents);
 
 module.exports = router;
