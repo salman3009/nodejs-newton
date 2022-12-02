@@ -1,0 +1,75 @@
+const Student = require('../November/30-11-22/authentication-process-authorization/models/Student')
+
+Steps:
+1.npm init
+2.npm install express
+3.create one file called index.js 
+4.create server setup:
+const express = require('express');
+const app = express();
+
+app.listen(8080,()=>{
+    console.log("server is runing on 8080");
+});
+==============================================
+5.npm install mongoose 
+6.index.js 
+const mongoose = require('mongoose');
+mongoose.connect("mongodb://localhost/tres").then((success)=>{
+     console.log("Database is connected successfully");
+}).catch((error)=>{
+      console.log("connection failed");
+});
+===================================
+6.create one folder called models 
+7.create schema file Student.js 
+const mongoose = require('mongoose');
+
+const mongooseSchema = mongoose.Schema({
+    fullName:{type:String,required:true},
+    age:{type:Number,required:true},
+    course:{type:String,required:true},
+    jobStatus:{type:Boolean,required:true},
+    score:{type:Number,required:true},
+    email:{type:String,required:true}
+});
+
+module.exports = mongoose.model('student',mongooseSchema);
+=========================================================
+8.we need to create one folder called controller 
+const Student = require('../models/Student');
+exports.postStudents=(req,res)=>{
+    const finalResult = new Student({
+        fullName:req.body.fullName,
+        age:req.body.age,
+        course:req.body.course,
+        jobStatus:req.body.jobStatus,
+        score:req.body.score,
+        email:req.emailToken
+    });
+    finalResult.save().then((result)=>{
+      res.status(201).json({
+        status:result
+      })
+    }).catch((error)=>{
+        res.status(400).json({
+         error:error
+        })
+    })
+}
+===========================================
+9.create one folder called routes 
+10.inside that create one file called Student.js
+const express = require("express");
+const userController = require('../controller/student');
+
+const router = express.Router();
+
+router.post('',userController.postStudents);
+
+module.exports = router;
+=============================================
+11.go to index.js to import router 
+const studentRouter = require('./routes/student');
+app.use('/student',studentRouter);
+================================================
