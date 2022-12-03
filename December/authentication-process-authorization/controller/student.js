@@ -4,7 +4,8 @@ exports.getStudents=(req,res)=>{
     console.log(req.emailToken);
     Student.find({email:req.emailToken}).then((result)=>{
         res.status(200).json({
-            status:result
+            status:result,
+            type:"faculty"
         });
     }).catch((error)=>{
         res.status(400).json({

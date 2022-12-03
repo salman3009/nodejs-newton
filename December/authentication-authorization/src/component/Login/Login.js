@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Login.css';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 
 const Login=()=>{
 
+   useEffect(()=>{
+       sessionStorage.removeItem('token');
+   },[])
+   
    const [getList,setList] = useState({
       email:'',
       password:''

@@ -5,15 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
 
-axios.interceptors.request.use(request => {
-  console.log("coming here");
-  // Edit request config
-  axios.defaults.headers.common['authorization'] = sessionStorage.getItem('token');
-  return request;
-}, error => {
-  console.log(error);
-  return Promise.reject(error);
-});
+// axios.interceptors.request.use(request => {
+//   console.log("coming here");
+//   // Edit request config
+//   axios.defaults.headers.common['authorization'] = sessionStorage.getItem('token');
+//   return request;
+// }, error => {
+//   console.log(error);
+//   return Promise.reject(error);
+// });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
