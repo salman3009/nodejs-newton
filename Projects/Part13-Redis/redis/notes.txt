@@ -1,0 +1,7 @@
+macos:
+cmd:brew install redis
+cmd:redis-server
+===============
+windows:
+https://kasunprageethdissanayake.medium.com/installing-redis-x64-3-2-100-on-windows-and-running-redis-server-94db3a98ae3d
+=====================================
