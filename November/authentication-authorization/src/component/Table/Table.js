@@ -1,6 +1,17 @@
 import './Table.css';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 const Table=()=>{
+
+  useEffect(()=>{
+   axios.get('http://localhost:8080/student/list').then((response)=>{
+    console.log(response.data);
+   }).catch((error)=>{
+       console.log(error);
+   });
+  },[]);
+  
    return (<div className="container">
       <div className="row">
          <div className="col-12 text-center">
